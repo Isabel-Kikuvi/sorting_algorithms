@@ -1,4 +1,5 @@
 #include "sort.h"
+void print_array(const int *array, size_t size);
 
 /**
  * bubble_sort - sorts an array of integers using bubblesort
@@ -24,7 +25,7 @@ void bubble_sort(int *array, size_t size)
 				array[j + 1] = temp;
 				flag = 1;
 			}
-			print_list(array, size);
+			print_array(array, size);
 		}
 		if (flag == 0)
 			break;
