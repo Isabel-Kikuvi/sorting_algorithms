@@ -11,21 +11,28 @@
 
 int partition(int *array, int lower_bound, int upper_bound, size_t size)
 {
-	int pivot, i, j;
+	int *pivot, i, j;
 
-	pivot = array[upper_bound];
-	i  = lower_bound - 1;
-
-	for (j = lower_bound; j < upper_bound;  j++)
+	pivot = array + upper_bound;
+	for (i = j = lower_bound; j < upper_bound; j++)
 	{
-		if (array[j] <= pivot)
+		if (array[j] < *pivot)
 		{
+			if (i < j)
+			{
+				swap(array + j, array + i);
+				print_array(array, size);
+			}
 			i++;
-			swap(&array[i], &array[j]);
 		}
 	}
-	swap(&array[i + 1], &array[upper_bound]);
-	print_array(array, size);
+
+	if (array[i] > *pivot)
+	{
+		swap(array + i, pivot);
+		print_array(array, size);
+	}
+
 	return (i);
 }
 
