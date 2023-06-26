@@ -16,7 +16,7 @@ int partition(int *array, int lower_bound, int upper_bound, size_t size)
 	pivot = array[upper_bound];
 	i  = lower_bound - 1;
 
-	for (j = lower_bound; j <= upper_bound - 1; j++)
+	for (j = lower_bound; j < upper_bound;  j++)
 	{
 		if (array[j] <= pivot)
 		{
@@ -26,7 +26,7 @@ int partition(int *array, int lower_bound, int upper_bound, size_t size)
 	}
 	swap(&array[i + 1], &array[upper_bound]);
 	print_array(array, size);
-	return (i + 1);
+	return (i);
 }
 
 /**
